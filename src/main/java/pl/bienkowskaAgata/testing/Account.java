@@ -3,6 +3,7 @@ package pl.bienkowskaAgata.testing;
 public class Account {
 
     private boolean activeAccount;
+    private Address defaultDeliveryAddress;
 
     public Account() {
         this.activeAccount = false;
@@ -14,5 +15,13 @@ public class Account {
 
     public boolean isActiveAccount() {
         return this.activeAccount;
+    }
+
+    public Address getDefaultDeliveryAddress() {
+        return defaultDeliveryAddress;
+    }
+
+    public void setDefaultDeliveryAddress(Address defaultDeliveryAddress) {
+        this.defaultDeliveryAddress = defaultDeliveryAddress;
     }
 }
