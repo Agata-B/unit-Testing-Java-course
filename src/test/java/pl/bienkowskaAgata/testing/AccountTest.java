@@ -2,6 +2,9 @@ package pl.bienkowskaAgata.testing;
 
 import org.junit.jupiter.api.Test;
 
+//import static org.hamcrest.MatcherAssert.assertThat;
+//import static org.hamcrest.Matchers.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
@@ -12,6 +15,8 @@ class AccountTest {
         Account newAccount = new Account();
         //then
         assertFalse(newAccount.isActiveAccount());
+        // hamcrest assertThat(newAccount.isActiveAccount(), equalTo(false));
+        assertThat(newAccount.isActiveAccount()).isFalse(); //assertJ
     }
 
     @Test
@@ -22,20 +27,22 @@ class AccountTest {
         newAccount.activate();
         //then
         assertTrue(newAccount.isActiveAccount());
+        //hamcrest assertThat(newAccount.isActiveAccount(), is(true));
     }
 
     @Test
-    void newCreatedAccountShouldNotHaveDefaultDeliveryAddress(){
+    void newCreatedAccountShouldNotHaveDefaultDeliveryAddress() {
         //given
         Account account = new Account();
         //when
         Address address = account.getDefaultDeliveryAddress();
         //then
         assertNull(address);
+        //hamcrest assertThat(address, notNullValue());
     }
 
     @Test
-    void defaultDeliveryAddressShouldNotBeNullAfterBeingSet(){
+    void defaultDeliveryAddressShouldNotBeNullAfterBeingSet() {
         //given
         Address address = new Address("Kolorowa", "12A");
         Account account = new Account();
