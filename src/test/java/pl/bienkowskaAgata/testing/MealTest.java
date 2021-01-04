@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class MealTest {
+class  MealTest {
 
     @Test
     void shouldReturnDiscountedPrice(){
@@ -22,7 +22,7 @@ class MealTest {
     void referenceToTheSameObjectShouldBeEquals (){
         //given
         Meal meal1 = new Meal(47);
-        Meal meal2 = meal1;
+         Meal meal2 = meal1;
 
         //then
         assertSame(meal1, meal2);

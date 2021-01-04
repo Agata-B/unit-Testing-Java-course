@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AccountTest {
+class  AccountTest {
 
     @Test
     void newAccountShouldNotBeActiveAfterCreation() {
@@ -38,7 +38,7 @@ class AccountTest {
         Address address = account.getDefaultDeliveryAddress();
         //then
         assertNull(address);
-        //hamcrest assertThat(address, notNullValue());
+        //hamcrest assertThat(address, nullValue());
     }
 
     @Test
