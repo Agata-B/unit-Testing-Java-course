@@ -45,4 +45,25 @@ void mealListShouldBeEmptyAfterCreationOrder() {
       //then
       assertThat(order.getMeals()).doesNotContain(meal);
    }
+
+   @Test
+   void mealsShouldBeInTheOrderAfterAddingThemToOrder() {
+       //given
+       Meal meal = new Meal(20, "salad");
+       Meal meal2 = new Meal(4, "sandwich");
+       Order order = new Order();
+       //when
+       order.addMealToOrder(meal);
+       order.addMealToOrder(meal2);
+       //then
+       assertThat(order.getMeals()).containsExactlyInAnyOrder(meal2, meal);
+    }
+    
+    @Test
+    void should() {
+        //given
+         
+        //when
+        //then
+     }
 }
