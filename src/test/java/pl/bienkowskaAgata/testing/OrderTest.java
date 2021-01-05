@@ -59,11 +59,4 @@ void mealListShouldBeEmptyAfterCreationOrder() {
        assertThat(order.getMeals()).containsExactlyInAnyOrder(meal2, meal);
     }
     
-    @Test
-    void should() {
-        //given
-         
-        //when
-        //then
-     }
 }
