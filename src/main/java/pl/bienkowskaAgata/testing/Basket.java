@@ -9,6 +9,10 @@ public class Basket {
 
     private List<Order> orders = new ArrayList<>();
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
     void addOrderToBasket (Order order) {
         this.orders.add(order);
     }

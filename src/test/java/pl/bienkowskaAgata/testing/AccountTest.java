@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 //import static org.hamcrest.Matchers.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 class  AccountTest {
 
@@ -52,4 +53,16 @@ class  AccountTest {
         //then
         assertNotNull(defaultAddress);
     }
+    
+    @Test
+    void newAccountWithNotNullAddressShouldBeActive() {
+        //given
+        Address address = new Address("Miedziana", "13");
+        //when
+        Account account = new Account(address);
+        //then
+        assumingThat(address != null, ()-> {
+            assertTrue(account.isActiveAccount());
+        });
+     }
 }
