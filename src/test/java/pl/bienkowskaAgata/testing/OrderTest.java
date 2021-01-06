@@ -1,5 +1,7 @@
 package pl.bienkowskaAgata.testing;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.matchers.Or;
 
@@ -12,11 +14,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OrderTest {
 
-@Test
+    private Order order;
+
+    @BeforeEach
+    void initializationOrder(){
+        order = new Order();
+    }
+
+    @AfterEach
+    void cleanUp(){
+        order.cancel();
+    }
+
+    @Test
 void mealListShouldBeEmptyAfterCreationOrder() {
-    //given
-    Order order = new Order();
-    //when
+
     //then
     assertThat(order.getMeals().isEmpty());
  }
@@ -25,7 +37,6 @@ void mealListShouldBeEmptyAfterCreationOrder() {
  void addingMealToOrderShouldIncreaseOrderSize() {
      //given
      Meal meal = new Meal(20, "salad");
-     Order order = new Order();
      //when
      order.addMealToOrder(meal);
      //then
@@ -37,7 +48,6 @@ void mealListShouldBeEmptyAfterCreationOrder() {
       //given
        Meal meal = new Meal(20, "salad");
        Meal meal2 = new Meal(4, "sandwich");
-       Order order = new Order();
       //when
       order.addMealToOrder(meal);
       order.addMealToOrder(meal2);
@@ -51,7 +61,6 @@ void mealListShouldBeEmptyAfterCreationOrder() {
        //given
        Meal meal = new Meal(20, "salad");
        Meal meal2 = new Meal(4, "sandwich");
-       Order order = new Order();
        //when
        order.addMealToOrder(meal);
        order.addMealToOrder(meal2);
