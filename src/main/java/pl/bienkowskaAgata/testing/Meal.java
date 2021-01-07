@@ -6,6 +6,7 @@ public class Meal {
 
     private int price;
     private String nameMeal;
+    private int quantity;
 
     public Meal(int price) {
         this.price = price;
@@ -16,9 +17,17 @@ public class Meal {
         this.nameMeal = nameMeal;
     }
 
+    public Meal(int price, String nameMeal, int quantity) {
+        this.price = price;
+        this.nameMeal = nameMeal;
+        this.quantity = quantity;
+    }
+
     public int getPrice() {
         return price;
     }
+
+    public int getQuantity() {return quantity; }
 
     public int getDiscountedPrice(int discount) {
         if(discount>this.price){
