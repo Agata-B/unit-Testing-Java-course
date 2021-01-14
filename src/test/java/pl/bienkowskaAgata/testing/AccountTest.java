@@ -65,4 +65,14 @@ class  AccountTest {
             assertTrue(account.isActiveAccount());
         });
      }
+     
+     @Test
+     void invalidEmailShouldThrowException() {
+         //given
+          Account account = new Account();
+         //when
+
+         //then
+         assertThrows(IllegalArgumentException.class, ()->account.setEmail("wrong email"));
+      }
 }

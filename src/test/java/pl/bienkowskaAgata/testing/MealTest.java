@@ -133,4 +133,18 @@ class  MealTest {
     private int calculatePrice (int price, int quantity){
         return price * quantity;
     }
+
+@Test
+void orderTotalPriceShouldNotExceedsMaxIntValue() {
+    //given
+    Meal meal = new Meal(Integer.MAX_VALUE, "Sandwich");
+    Meal meal1 = new Meal(Integer.MAX_VALUE, "Pizza");
+    Order order = new Order();
+    //when
+    order.addMealToOrder(meal);
+    order.addMealToOrder(meal1);
+    //then
+    assertThrows(IllegalStateException.class, ()-> order.totalPrize());
+ }
+
 }
