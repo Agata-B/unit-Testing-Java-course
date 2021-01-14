@@ -2,6 +2,7 @@ package pl.bienkowskaAgata.testing;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.matchers.Or;
 
@@ -32,7 +33,8 @@ void mealListShouldBeEmptyAfterCreationOrder() {
     //then
     assertThat(order.getMeals().isEmpty());
  }
- 
+
+ @Tag("salad")
  @Test
  void addingMealToOrderShouldIncreaseOrderSize() {
      //given
@@ -43,6 +45,7 @@ void mealListShouldBeEmptyAfterCreationOrder() {
      assertThat(order.getMeals()).hasSize(1);
   }
 
+  @Tag("salad")
   @Test
   void removingMealFromOrderShouldDecreaseOrderSize() {
       //given
@@ -56,6 +59,7 @@ void mealListShouldBeEmptyAfterCreationOrder() {
       assertThat(order.getMeals()).doesNotContain(meal);
    }
 
+   @Tag("salad")
    @Test
    void mealsShouldBeInTheOrderAfterAddingThemToOrder() {
        //given
