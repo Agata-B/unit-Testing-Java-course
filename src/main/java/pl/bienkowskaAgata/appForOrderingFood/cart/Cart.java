@@ -1,11 +1,12 @@
-package pl.bienkowskaAgata.appForOrderingFood;
+package pl.bienkowskaAgata.appForOrderingFood.cart;
 
+import pl.bienkowskaAgata.appForOrderingFood.Meal;
 import pl.bienkowskaAgata.appForOrderingFood.order.Order;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Basket {
+public class Cart {
 
     private List<Order> orders = new ArrayList<>();
 
@@ -13,7 +14,7 @@ public class Basket {
         return orders;
     }
 
-    void addOrderToBasket (Order order) {
+    public void addOrderToBasket(Order order) {
         this.orders.add(order);
     }
 
@@ -21,7 +22,7 @@ public class Basket {
         this.orders.clear();
     }
 
-    void simulateLargeOrder (){
+    public void simulateLargeOrder (){
         for (int i = 0; i < 1000; i++) {
             Meal meal = new Meal( i%10, "Hamburger no" + i);
             Order order = new Order();

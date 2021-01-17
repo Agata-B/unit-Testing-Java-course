@@ -7,8 +7,16 @@ import java.util.List;
 
 public class Order {
 
+    private OrderStatus orderStatus;
     public List<Meal> meals = new ArrayList<>();
 
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void changeOrderStatus(OrderStatus orderStatus ) {
+        this.orderStatus = orderStatus;
+    }
     public void addMealToOrder(Meal meal) {
         this.meals.add(meal);
     }

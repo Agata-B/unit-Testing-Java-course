@@ -1,4 +1,4 @@
-package pl.bienkowskaAgata.appForOrderingFood;
+package pl.bienkowskaAgata.appForOrderingFood.cart;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,27 +11,27 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 
-class BasketTest {
+class CartTest {
 
     @Test
     @DisplayName("Basket is able to process 1000 orders in 100ms.")
     void simulateLargeOrder() {
         //given
-         Basket basket = new Basket();
+         Cart cart = new Cart();
         //when
         //then
-        assertTimeout(Duration.ofMillis(100 ), basket::simulateLargeOrder);
+        assertTimeout(Duration.ofMillis(100 ), cart::simulateLargeOrder);
      }
 
      @Test
      void basketShouldNotBeEmptyAfterAddingOrderToBasket() {
          //given
          Order order = new Order();
-         Basket basket = new Basket();
+         Cart cart = new Cart();
          //when
-         basket.addOrderToBasket(order);
+         cart.addOrderToBasket(order);
          //then
-       assertThat(basket.getOrders(), allOf(
+       assertThat(cart.getOrders(), allOf(
              notNullValue(),
            is(not(emptyCollectionOf(Order.class)))
        ));
