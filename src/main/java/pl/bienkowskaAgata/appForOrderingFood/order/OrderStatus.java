@@ -1,4 +1,4 @@
-package pl.bienkowskaAgata.testing;
+package pl.bienkowskaAgata.appForOrderingFood.order;
 
 public enum OrderStatus {
 

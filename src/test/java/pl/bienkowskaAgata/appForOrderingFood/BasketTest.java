@@ -1,8 +1,8 @@
-package pl.bienkowskaAgata.testing;
+package pl.bienkowskaAgata.appForOrderingFood;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Or;
+import pl.bienkowskaAgata.appForOrderingFood.order.Order;
 
 import java.time.Duration;
 
@@ -33,7 +33,6 @@ class BasketTest {
          //then
        assertThat(basket.getOrders(), allOf(
              notNullValue(),
-           hasSize(0),
            is(not(emptyCollectionOf(Order.class)))
        ));
       }

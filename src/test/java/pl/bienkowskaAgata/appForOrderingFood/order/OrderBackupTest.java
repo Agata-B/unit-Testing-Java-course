@@ -1,15 +1,15 @@
-package pl.bienkowskaAgata.testing;
+package pl.bienkowskaAgata.appForOrderingFood.order;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Or;
+import pl.bienkowskaAgata.appForOrderingFood.Meal;
+import pl.bienkowskaAgata.appForOrderingFood.order.Order;
+import pl.bienkowskaAgata.appForOrderingFood.order.OrderBackup;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OrderBackupTest {
 

@@ -1,12 +1,11 @@
-package pl.bienkowskaAgata.testing;
+package pl.bienkowskaAgata.appForOrderingFood.account;
 
 import org.junit.jupiter.api.Test;
 
-//import static org.hamcrest.MatcherAssert.assertThat;
-//import static org.hamcrest.Matchers.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
+
 
 class  AccountTest {
 
@@ -26,6 +25,7 @@ class  AccountTest {
         Account newAccount = new Account();
         //when
         newAccount.activate();
+
         //then
         assertTrue(newAccount.isActiveAccount());
         //hamcrest assertThat(newAccount.isActiveAccount(), is(true));
@@ -75,4 +75,14 @@ class  AccountTest {
          //then
          assertThrows(IllegalArgumentException.class, ()->account.setEmail("wrong email"));
       }
+
+      @Test
+      void validEmailShouldBeSet() {
+          //given
+           Account account = new Account();
+          //when
+          account.setEmail("kontakt@test.pl");
+          //then
+          assertThat(account.getEmail()).isEqualTo("kontakt@test.pl");
+       }
 }

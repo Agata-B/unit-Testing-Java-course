@@ -1,4 +1,4 @@
-package pl.bienkowskaAgata.testing;
+package pl.bienkowskaAgata.appForOrderingFood;
 
 import java.util.Objects;
 

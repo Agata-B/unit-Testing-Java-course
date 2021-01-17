@@ -1,4 +1,4 @@
-package pl.bienkowskaAgata.testing;
+package pl.bienkowskaAgata.appForOrderingFood;
 
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Tag;
@@ -9,6 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import pl.bienkowskaAgata.appForOrderingFood.order.Order;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +19,6 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 class  MealTest {
 
@@ -88,8 +88,7 @@ class  MealTest {
 
      private static Stream<Arguments> createMealWithNameAndPrice(){
         return Stream.of(
-                Arguments.of("pizza", 15),
-                Arguments.of("hamburger", 8)
+                Arguments.of("pizza", 15)
         );
      }
 
@@ -119,9 +118,7 @@ class  MealTest {
             int price = order.getMeals().get(i).getPrice();
             int quantity = order.getMeals().get(i).getQuantity();
 
-            Executable executable = ()->{
-                assertThat(calculatePrice(price, quantity)).isLessThan(68);
-            };
+            Executable executable = ()-> assertThat(calculatePrice(price, quantity)).isLessThan(68);
             String name = "Test name: " +i;
             DynamicTest dynamicTest = DynamicTest.dynamicTest(name, executable);
 
@@ -147,4 +144,26 @@ void orderTotalPriceShouldNotExceedsMaxIntValue() {
     assertThrows(IllegalStateException.class, ()-> order.totalPrize());
  }
 
+ @Test
+ void emptyOrderTotalPrizeShouldBeZero() {
+     //given
+     Order order = new Order();
+     //when
+     //then
+     assertThat(order.totalPrize()).isEqualTo(0);
+  }
+
+  @Test
+  void cancelingOrderShouldRemoveAllItemsForMealList() {
+      //given
+       Meal meal1 = new Meal(15,"pizza");
+       Meal meal2 = new Meal(5,"burger");
+       Order order = new Order();
+      //when
+      order.addMealToOrder(meal1);
+      order.addMealToOrder(meal2);
+      order.cancel();
+      //then
+      assertTrue(order.getMeals().isEmpty());
+   }
 }

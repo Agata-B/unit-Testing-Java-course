@@ -1,4 +1,6 @@
-package pl.bienkowskaAgata.testing;
+package pl.bienkowskaAgata.appForOrderingFood.order;
+
+import pl.bienkowskaAgata.appForOrderingFood.Meal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +21,11 @@ public class Order {
         return meals;
     }
 
-    void cancel(){
+    public void cancel(){
         this.meals.clear();
     }
 
-    int totalPrize (){
+    public int totalPrize (){
         int sum = 0;
        sum =  this.meals.stream().mapToInt(meal ->meal.getPrice()).sum();
        if (sum<0) {

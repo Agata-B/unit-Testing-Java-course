@@ -1,6 +1,6 @@
-package pl.bienkowskaAgata.testing;
+package pl.bienkowskaAgata.appForOrderingFood.account;
 
-public class Address {
+class Address {
 
     private String street;
     private String numberStreet;
