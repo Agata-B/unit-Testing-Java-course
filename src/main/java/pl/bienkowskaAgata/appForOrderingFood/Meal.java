@@ -57,4 +57,8 @@ public class Meal {
                 "price " + price +
                 ", nameMeal " + nameMeal;
     }
+
+    int sumPrice(){
+        return getPrice()*getQuantity();
+    }
 }
